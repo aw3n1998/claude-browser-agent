@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude AI Assistant - 设置</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="currentColor"/>
+          </svg>
+        </div>
+        <span>Claude AI</span>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-section="api">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          API 配置
+        </button>
+        <button class="nav-item" data-section="model">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          模型设置
+        </button>
+        <button class="nav-item" data-section="appearance">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v4l3 3"/>
+          </svg>
+          外观
+        </button>
+        <button class="nav-item" data-section="about">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          关于
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- API Config Section -->
+      <section class="section active" id="section-api">
+        <div class="section-header">
+          <h1>API 配置</h1>
+          <p>配置您的 Anthropic API Key 以使用 Claude AI</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Anthropic API Key</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="apiKeyInput">API Key</label>
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  id="apiKeyInput"
+                  placeholder="sk-ant-api03-..."
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <button class="toggle-visibility" id="toggleVisibility" title="显示/隐藏">
+                  <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="help-text">
+                在 <a href="https://console.anthropic.com/api-keys" target="_blank">Anthropic Console</a> 获取您的 API Key
+              </p>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" id="saveApiKey">保存 API Key</button>
+              <button class="btn btn-secondary" id="testApiKey">测试连接</button>
+              <button class="btn btn-danger" id="clearApiKey">清除</button>
+            </div>
+
+            <div class="status-message" id="apiStatus"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>使用提示</h2>
+          </div>
+          <div class="card-body">
+            <ul class="tips-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                API Key 仅保存在本地浏览器中，不会上传到任何服务器
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                每次对话都会使用您账户的 API 额度
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                请确保您的 API Key 有足够的使用额度
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                建议定期更换 API Key 以保证安全
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Model Settings Section -->
+      <section class="section" id="section-model">
+        <div class="section-header">
+          <h1>模型设置</h1>
+          <p>配置 Claude 模型参数</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>模型选择</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="modelSelect">Claude 模型</label>
+              <select id="modelSelect">
+                <option value="claude-sonnet-4-6">Claude Sonnet 4.6 (推荐)</option>
+                <option value="claude-opus-4-6">Claude Opus 4.6 (最强)</option>
+                <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 (最快)</option>
+              </select>
+              <p class="help-text">Sonnet 提供最佳的速度与能力平衡</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>参数设置</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="maxTokens">
+                最大输出 Token 数
+                <span class="badge" id="maxTokensValue">1024</span>
+              </label>
+              <input type="range" id="maxTokens" min="256" max="4096" step="256" value="1024">
+              <div class="range-labels">
+                <span>256 (快速)</span>
+                <span>4096 (详细)</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="systemPrompt">系统提示词 (可选)</label>
+              <textarea
+                id="systemPrompt"
+                placeholder="自定义 Claude 的行为和角色..."
+                rows="4"
+              ></textarea>
+              <p class="help-text">留空使用默认提示词</p>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" id="saveModelSettings">保存设置</button>
+              <button class="btn btn-secondary" id="resetModelSettings">恢复默认</button>
+            </div>
+
+            <div class="status-message" id="modelStatus"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Appearance Section -->
+      <section class="section" id="section-appearance">
+        <div class="section-header">
+          <h1>外观</h1>
+          <p>自定义扩展的外观</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>主题</h2>
+          </div>
+          <div class="card-body">
+            <div class="theme-options">
+              <label class="theme-option active" data-theme="dark">
+                <div class="theme-preview dark-preview">
+                  <div class="preview-header"></div>
+                  <div class="preview-msg preview-assistant"></div>
+                  <div class="preview-msg preview-user"></div>
+                </div>
+                <span>深色 (默认)</span>
+                <input type="radio" name="theme" value="dark" checked>
+              </label>
+              <label class="theme-option" data-theme="light">
+                <div class="theme-preview light-preview">
+                  <div class="preview-header"></div>
+                  <div class="preview-msg preview-assistant"></div>
+                  <div class="preview-msg preview-user"></div>
+                </div>
+                <span>浅色</span>
+                <input type="radio" name="theme" value="light">
+              </label>
+            </div>
+
+            <div class="form-actions" style="margin-top: 16px;">
+              <button class="btn btn-primary" id="saveAppearance">保存外观设置</button>
+            </div>
+            <div class="status-message" id="appearanceStatus"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="section" id="section-about">
+        <div class="section-header">
+          <h1>关于</h1>
+        </div>
+
+        <div class="card">
+          <div class="card-body about-card">
+            <div class="about-logo">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h2>Claude AI Assistant</h2>
+            <p class="version">版本 1.0.0</p>
+            <p class="description">
+              基于 Anthropic Claude AI 的浏览器扩展，让您在浏览器中直接与 Claude 对话，
+              总结网页内容，解释文章，翻译文本等。
+            </p>
+            <div class="about-links">
+              <a href="https://www.anthropic.com" target="_blank">Anthropic 官网</a>
+              <a href="https://docs.anthropic.com" target="_blank">API 文档</a>
+              <a href="https://console.anthropic.com" target="_blank">控制台</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
